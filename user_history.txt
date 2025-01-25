@@ -1,0 +1,58 @@
+1 history
+2 sudo apt list | grep -i python3.10
+3 clear
+4 cd ..
+5 wget openssl.org/source/openssl-1.1.1t.tar.gz
+6 gzip -d openssl-1.1.1t.tar.gz
+7 tar -xf openssl-1.1.1t.tar
+8 ls
+9 cd openssl-1.1.1t/
+10 ./config --prefix=$HOME/openssl --openssldir=$HOME/openssl shared zlib
+11 vim Makefile
+12 make -j5
+13 make install
+14 clear
+15 vim ~/.bashrc
+16 source ~/.bashrc
+17 echo "$LD_LIBRARY_PATH"
+18 vim ~/.bashrc
+19 source ~/.bashrc
+20 source ~/.bashrc
+21 echo "$LD_LIBRARY_PATH"
+22 echo "$PATH"
+23 cd ..
+24 export CFLAGS="-I$HOME/openssl/include"
+25 echo "$CFLAGS"
+26 export LDFLAGS="-I$HOME/openssl/lib" 
+27 echo "$LDFLAGS"
+28 cd Python-3.10.15/
+29 ls
+30 ./configure --prefix=$HOME/python3.10 
+31 make clean
+32 make uninstall
+33 vim Makefile
+34 make -j5
+35 make install -j10
+36 vim ~/.bashrc
+37 source ~/.bashrc
+38 echo "$PATH"
+39 ls ~/python3.10/bin/
+40 python3.10 --version
+41 python3.10 -m ensurepip --upgrade
+42 python3.10 -m pip --version
+43 python3.10 -m pip install venv
+44 python3.10 -m pip install label-studio
+45 ./configure --prefix=$HOME/python3.10 --with-openss; = $HOME/openssl
+46 ls ~
+47 ./configure --prefix=$HOME/python3.10 --with-openss=$HOME/openssl 
+48 vim Makefile
+49 make -j10
+50* make -
+51 ./configure --prefix=$HOME/python3.10 --with-openssl=$HOME/openssl
+52 make -j5
+53 make install-j10
+54 python3.10 -m ensurepip
+55 python3.10 -m pip install --upgrade pip
+56 python3.10 -m pip install venv
+57 python3.10 -m pip install label-studio
+58 history > user_history.txt
